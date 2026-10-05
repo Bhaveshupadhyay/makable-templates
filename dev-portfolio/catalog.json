@@ -1,13 +1,32 @@
 {
-  "generatedAt": "2026-10-05T09:24:48.644Z",
+  "generatedAt": "2026-10-05T09:38:23.967Z",
   "baseUrl": "https://bhaveshupadhyay.github.io/makable-templates",
   "category": {
     "id": "dev-portfolio",
     "name": "Developer Portfolio",
     "description": "Portfolios for software engineers, developers, and builders",
-    "count": 5
+    "count": 7
   },
   "templates": [
+    {
+      "id": "clean-dev",
+      "category": "dev-portfolio",
+      "name": "Clean Dev",
+      "description": "Material-inspired software developer portfolio with sidebar navigation",
+      "kind": "static",
+      "version": 1,
+      "tags": [
+        "clean",
+        "material",
+        "resume",
+        "sidebar",
+        "static"
+      ],
+      "contentPath": "content/portfolio.js",
+      "thumbnailUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/clean-dev/1/thumb.webp",
+      "demoUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/clean-dev/1/demo/",
+      "filesUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/clean-dev/1/files.json"
+    },
     {
       "id": "minimal",
       "category": "dev-portfolio",
@@ -96,6 +115,24 @@
       "thumbnailUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/paper/1/thumb.webp",
       "demoUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/paper/1/demo/",
       "filesUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/paper/1/files.json"
+    },
+    {
+      "id": "dopefolio",
+      "category": "dev-portfolio",
+      "name": "Dopefolio",
+      "description": "High-impact developer portfolio with clean project showcases",
+      "kind": "static",
+      "version": 1,
+      "tags": [
+        "bold",
+        "showcase",
+        "responsive",
+        "static"
+      ],
+      "contentPath": "content/portfolio.js",
+      "thumbnailUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/dopefolio/1/thumb.webp",
+      "demoUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/dopefolio/1/demo/",
+      "filesUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/dopefolio/1/files.json"
     }
   ]
 }

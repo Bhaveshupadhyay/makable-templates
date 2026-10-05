@@ -22,16 +22,22 @@ function parseArgs() {
   const args = process.argv.slice(2)
   let all = false
   let changedBase: string | undefined
+  // Screenshots run in GitHub Actions CI by default, skipped on local Mac unless --screenshots is passed
+  let screenshots = process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true'
 
   for (let i = 0; i < args.length; i++) {
     if (args[i] === '--all') {
       all = true
     } else if (args[i] === '--changed') {
       changedBase = args[++i]
+    } else if (args[i] === '--screenshots') {
+      screenshots = true
+    } else if (args[i] === '--no-screenshots') {
+      screenshots = false
     }
   }
 
-  return { all: all || !changedBase, changedBase }
+  return { all: all || !changedBase, changedBase, screenshots }
 }
 
 async function loadSampleContent(category: string): Promise<string> {
@@ -48,7 +54,7 @@ function areBundlesEqual(a: Record<string, unknown>, b: Record<string, unknown>)
   return JSON.stringify(a) === JSON.stringify(b)
 }
 
-async function buildTemplate(ref: TemplateRef) {
+async function buildTemplate(ref: TemplateRef, screenshots = false) {
   const templateDir = ref.dir
   const tplJsonPath = join(templateDir, 'template.json')
 
@@ -135,8 +141,12 @@ async function buildTemplate(ref: TemplateRef) {
     }
 
     // 5. Playwright contract verification and screenshots
-    console.log('  Verifying editable contract and capturing thumbnails with Playwright...')
-    await runPlaywrightContractAndScreenshots(tpl, demoDir, outVersionDir, basePath)
+    if (screenshots) {
+      console.log('  Verifying editable contract and capturing thumbnails with Playwright...')
+      await runPlaywrightContractAndScreenshots(tpl, demoDir, outVersionDir, basePath)
+    } else {
+      console.log('  Skipping Playwright screenshots (runs automatically in GitHub Actions CI).')
+    }
 
     // 6. Write files.json
     await writeFile(filesJsonPath, JSON.stringify(sourceBundle, null, 2), 'utf-8')
@@ -173,7 +183,7 @@ async function regenerateCatalogs() {
 }
 
 async function main() {
-  const { all, changedBase } = parseArgs()
+  const { all, changedBase, screenshots } = parseArgs()
 
   let selected: TemplateRef[] = []
   if (all) {
@@ -184,10 +194,10 @@ async function main() {
     selected = await getChangedTemplates(TEMPLATES_DIR, changedBase)
   }
 
-  console.log(`Found ${selected.length} template(s) to build.`)
+  console.log(`Found ${selected.length} template(s) to build. Screenshots enabled: ${screenshots}`)
 
   for (const ref of selected) {
-    await buildTemplate(ref)
+    await buildTemplate(ref, screenshots)
   }
 
   // Always regenerate catalogs from all templates

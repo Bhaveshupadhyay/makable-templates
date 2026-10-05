@@ -10,8 +10,11 @@ All commands run from the repository root with Bun. Always use `bun --bun ...`, 
 |---|---|
 | `bun install` | Install all workspaces and dependencies |
 | `bun test` | Run unit tests |
-| `bun --bun scripts/build.ts --all` | Validate, build, bundle, and screenshot all templates |
+| `bun --bun scripts/build.ts --all` | Validate, build, and bundle all templates (skips screenshots locally) |
+| `bun --bun scripts/build.ts --all --screenshots` | Build with local Playwright screenshot capture |
 | `bun --bun scripts/build.ts --changed <ref>` | Build only templates changed since `<ref>` (e.g. `HEAD~1`) |
+
+Note: Screenshots run automatically in GitHub Actions CI/CD on push to `main`, saving the screenshot and updating the catalog on `gh-pages`.
 
 ## Repo Layout
 

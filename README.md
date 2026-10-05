@@ -81,5 +81,18 @@ makable-templates/
 |---|---|
 | `bun install` | Install all dependencies across workspaces |
 | `bun test` | Run unit tests |
-| `bun --bun scripts/build.ts --all` | Validate, build, and screenshot all templates |
+| `bun --bun scripts/build.ts --all` | Validate, build, and bundle all templates (fast local build, skips screenshots) |
+| `bun --bun scripts/build.ts --all --screenshots` | Run full build including local Playwright screenshots |
 | `bun --bun scripts/build.ts --changed <ref>` | Build only templates changed since `<ref>` |
+
+---
+
+## Automated CI/CD Publishing & Screenshots
+
+When a new template is committed and pushed to `main`:
+1. **GitHub Actions Workflow** (`.github/workflows/publish.yml`) runs automatically.
+2. It detects the added or changed template.
+3. It builds the template and runs Playwright Chromium in the runner to capture the 1280×800 screenshot (`thumb.webp` / `thumb-<theme>.webp`).
+4. It updates the published catalog config (`catalog.json` and `<category>/catalog.json`) with the live thumbnail URL.
+5. It commits and publishes the demos, screenshots, and catalogs to the `gh-pages` branch, instantly hosting them via GitHub Pages.
+

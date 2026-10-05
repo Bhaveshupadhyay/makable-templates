@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T09:20:24.193Z",
+  "generatedAt": "2026-10-05T09:22:23.619Z",
   "baseUrl": "https://bhaveshupadhyay.github.io/makable-templates",
   "categories": [
     {
@@ -10,23 +10,6 @@
     }
   ],
   "templates": [
-    {
-      "id": "paper",
-      "category": "dev-portfolio",
-      "name": "Paper",
-      "description": "Plain HTML, CSS and JS. No build step.",
-      "kind": "static",
-      "version": 1,
-      "tags": [
-        "static",
-        "html",
-        "simple"
-      ],
-      "contentPath": "content/portfolio.js",
-      "thumbnailUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/paper/1/thumb.webp",
-      "demoUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/paper/1/demo/",
-      "filesUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/paper/1/files.json"
-    },
     {
       "id": "minimal",
       "category": "dev-portfolio",
@@ -98,6 +81,23 @@
       "thumbnailUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/portfolio/1/thumb-editorial.webp",
       "demoUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/portfolio/1/demo/?theme=editorial",
       "filesUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/portfolio/1/files.json"
+    },
+    {
+      "id": "paper",
+      "category": "dev-portfolio",
+      "name": "Paper",
+      "description": "Plain HTML, CSS and JS. No build step.",
+      "kind": "static",
+      "version": 1,
+      "tags": [
+        "static",
+        "html",
+        "simple"
+      ],
+      "contentPath": "content/portfolio.js",
+      "thumbnailUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/paper/1/thumb.webp",
+      "demoUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/paper/1/demo/",
+      "filesUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/paper/1/files.json"
     }
   ]
 }

@@ -1,34 +1,15 @@
 {
-  "generatedAt": "2026-10-05T10:28:08.522Z",
+  "generatedAt": "2026-10-05T10:28:13.914Z",
   "baseUrl": "https://bhaveshupadhyay.github.io/makable-templates",
   "categories": [
     {
       "id": "dev-portfolio",
       "name": "Developer Portfolio",
       "description": "Portfolios for software engineers, developers, and builders",
-      "count": 7
+      "count": 6
     }
   ],
   "templates": [
-    {
-      "id": "clean-dev",
-      "category": "dev-portfolio",
-      "name": "Clean Dev",
-      "description": "Material-inspired software developer portfolio with sidebar navigation",
-      "kind": "static",
-      "version": 1,
-      "tags": [
-        "clean",
-        "material",
-        "resume",
-        "sidebar",
-        "static"
-      ],
-      "contentPath": "content/portfolio.js",
-      "thumbnailUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/clean-dev/1/thumb.webp",
-      "demoUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/clean-dev/1/demo/",
-      "filesUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/clean-dev/1/files.json"
-    },
     {
       "id": "minimal",
       "category": "dev-portfolio",

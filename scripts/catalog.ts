@@ -1,4 +1,5 @@
-import { readdir, readFile } from 'node:fs/promises'
+import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
 import { join } from 'node:path'
 import {
   categorySchema,
@@ -156,4 +157,71 @@ export function buildCategoryCatalog(
     },
     templates: filtered,
   }
+}
+
+/**
+ * Generates and writes both global and category-specific catalogs to outDir.
+ */
+export async function writeCatalogs(
+  outDir: string,
+  categoriesDir: string,
+  templatesDir: string,
+  baseUrl = DEFAULT_BASE_URL,
+): Promise<{ fullCatalog: Catalog; categoryCatalogs: Map<string, CategoryCatalog> }> {
+  const categories = await loadCategories(categoriesDir)
+  const templates = await loadTemplates(templatesDir)
+  const entries = buildCatalogEntries(templates, baseUrl)
+
+  await mkdir(outDir, { recursive: true })
+
+  // 1. Global catalog
+  const fullCatalog = buildFullCatalog(categories, entries, baseUrl)
+  const fullPath = join(outDir, 'catalog.json')
+  await writeFile(fullPath, JSON.stringify(fullCatalog, null, 2), 'utf-8')
+  console.log(`  ✔ Global catalog: ${fullPath} (${entries.length} template entries)`)
+
+  // 2. Per-category catalogs
+  const categoryCatalogs = new Map<string, CategoryCatalog>()
+  for (const [id, cat] of categories) {
+    const catOutDir = join(outDir, id)
+    await mkdir(catOutDir, { recursive: true })
+    const catCatalog = buildCategoryCatalog(cat, entries, baseUrl)
+    const catPath = join(catOutDir, 'catalog.json')
+    await writeFile(catPath, JSON.stringify(catCatalog, null, 2), 'utf-8')
+    categoryCatalogs.set(id, catCatalog)
+    console.log(`  ✔ Category catalog: ${catPath} (${catCatalog.templates.length} entries)`)
+  }
+
+  return { fullCatalog, categoryCatalogs }
+}
+
+/**
+ * Removes published directories in out/ for templates that no longer exist in templates/.
+ */
+export async function cleanOrphanOutputs(
+  templatesDir: string,
+  outDir: string,
+  categories: Map<string, CategoryJson>,
+): Promise<string[]> {
+  if (!existsSync(outDir)) return []
+  const removed: string[] = []
+
+  for (const [catId] of categories) {
+    const outCatDir = join(outDir, catId)
+    if (!existsSync(outCatDir)) continue
+
+    const entries = await readdir(outCatDir, { withFileTypes: true })
+    for (const entry of entries) {
+      if (!entry.isDirectory()) continue
+      const tplSourceDir = join(templatesDir, catId, entry.name)
+      if (!existsSync(tplSourceDir)) {
+        const orphanPath = join(outCatDir, entry.name)
+        console.log(`  Removing orphan published output: ${catId}/${entry.name}`)
+        await rm(orphanPath, { recursive: true, force: true })
+        removed.push(`${catId}/${entry.name}`)
+      }
+    }
+  }
+
+  return removed
 }

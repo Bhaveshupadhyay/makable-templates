@@ -13,6 +13,7 @@ All commands run from the repository root with Bun. Always use `bun --bun ...`, 
 | `bun --bun scripts/build.ts --all` | Validate, build, and bundle all templates (skips screenshots locally) |
 | `bun --bun scripts/build.ts --all --screenshots` | Build with local Playwright screenshot capture |
 | `bun --bun scripts/build.ts --changed <ref>` | Build only templates changed since `<ref>` (e.g. `HEAD~1`) |
+| `bun --bun scripts/remove.ts --category <cat> --id <id>` | Remove a template and update catalogs |
 
 Note: Screenshots run automatically in GitHub Actions CI/CD on push to `main`, saving the screenshot and updating the catalog on `gh-pages`.
 

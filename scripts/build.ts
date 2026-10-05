@@ -3,11 +3,9 @@ import { existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { bundleSource } from './bundle'
 import {
-  buildCatalogEntries,
-  buildCategoryCatalog,
-  buildFullCatalog,
+  cleanOrphanOutputs,
   loadCategories,
-  loadTemplates,
+  writeCatalogs,
 } from './catalog'
 import { getAllTemplates, getChangedTemplates, type TemplateRef } from './changed'
 import { runPlaywrightContractAndScreenshots, runStaticContractChecks } from './contract'
@@ -160,26 +158,8 @@ async function buildTemplate(ref: TemplateRef, screenshots = false) {
 async function regenerateCatalogs() {
   console.log('\n▶ Regenerating catalogs...')
   const categories = await loadCategories(CATEGORIES_DIR)
-  const templates = await loadTemplates(TEMPLATES_DIR)
-  const entries = buildCatalogEntries(templates)
-
-  await mkdir(OUT_DIR, { recursive: true })
-
-  // 1. Global catalog
-  const fullCatalog = buildFullCatalog(categories, entries)
-  const fullPath = join(OUT_DIR, 'catalog.json')
-  await writeFile(fullPath, JSON.stringify(fullCatalog, null, 2), 'utf-8')
-  console.log(`  ✔ Global catalog: ${fullPath} (${entries.length} template entries)`)
-
-  // 2. Per-category catalogs
-  for (const [id, cat] of categories) {
-    const catOutDir = join(OUT_DIR, id)
-    await mkdir(catOutDir, { recursive: true })
-    const catCatalog = buildCategoryCatalog(cat, entries)
-    const catPath = join(catOutDir, 'catalog.json')
-    await writeFile(catPath, JSON.stringify(catCatalog, null, 2), 'utf-8')
-    console.log(`  ✔ Category catalog: ${catPath} (${catCatalog.templates.length} entries)`)
-  }
+  await cleanOrphanOutputs(TEMPLATES_DIR, OUT_DIR, categories)
+  await writeCatalogs(OUT_DIR, CATEGORIES_DIR, TEMPLATES_DIR)
 }
 
 async function main() {

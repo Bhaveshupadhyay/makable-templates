@@ -96,3 +96,19 @@ When a new template is committed and pushed to `main`:
 4. It updates the published catalog config (`catalog.json` and `<category>/catalog.json`) with the live thumbnail URL.
 5. It commits and publishes the demos, screenshots, and catalogs to the `gh-pages` branch, instantly hosting them via GitHub Pages.
 
+---
+
+## How to Remove a Template
+
+There are two ways to remove a template:
+
+### 1. Via GitHub Actions (Recommended)
+1. Navigate to the **Actions** tab in GitHub and select **Remove Template**.
+2. Click **Run workflow**, enter the category ID (e.g. `dev-portfolio`) and template ID (e.g. `clean-dev`).
+3. The workflow removes the template from `main`, deletes its published assets from `gh-pages`, updates the catalogs, and commits both branches.
+
+### 2. Locally via CLI
+```bash
+bun --bun scripts/remove.ts --category dev-portfolio --id clean-dev
+```
+

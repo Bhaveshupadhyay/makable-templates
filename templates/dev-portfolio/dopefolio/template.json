@@ -1,0 +1,10 @@
+{
+  "id": "dopefolio",
+  "category": "dev-portfolio",
+  "name": "Dopefolio",
+  "description": "High-impact developer portfolio with clean project showcases",
+  "kind": "static",
+  "version": 1,
+  "tags": ["bold", "showcase", "responsive", "static"],
+  "contentPath": "content/portfolio.js"
+}

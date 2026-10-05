@@ -1,0 +1,101 @@
+{
+  "generatedAt": "2026-10-05T09:20:24.194Z",
+  "baseUrl": "https://bhaveshupadhyay.github.io/makable-templates",
+  "category": {
+    "id": "dev-portfolio",
+    "name": "Developer Portfolio",
+    "description": "Portfolios for software engineers, developers, and builders",
+    "count": 5
+  },
+  "templates": [
+    {
+      "id": "paper",
+      "category": "dev-portfolio",
+      "name": "Paper",
+      "description": "Plain HTML, CSS and JS. No build step.",
+      "kind": "static",
+      "version": 1,
+      "tags": [
+        "static",
+        "html",
+        "simple"
+      ],
+      "contentPath": "content/portfolio.js",
+      "thumbnailUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/paper/1/thumb.webp",
+      "demoUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/paper/1/demo/",
+      "filesUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/paper/1/files.json"
+    },
+    {
+      "id": "minimal",
+      "category": "dev-portfolio",
+      "name": "Minimal",
+      "description": "Clean type and lots of whitespace.",
+      "kind": "react",
+      "version": 1,
+      "tags": [
+        "minimal",
+        "clean",
+        "light"
+      ],
+      "theme": "minimal",
+      "contentPath": "src/content/portfolio.ts",
+      "thumbnailUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/portfolio/1/thumb-minimal.webp",
+      "demoUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/portfolio/1/demo/?theme=minimal",
+      "filesUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/portfolio/1/files.json"
+    },
+    {
+      "id": "terminal",
+      "category": "dev-portfolio",
+      "name": "Terminal",
+      "description": "Monospace, dark, command-line feel.",
+      "kind": "react",
+      "version": 1,
+      "tags": [
+        "terminal",
+        "dark",
+        "code"
+      ],
+      "theme": "terminal",
+      "contentPath": "src/content/portfolio.ts",
+      "thumbnailUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/portfolio/1/thumb-terminal.webp",
+      "demoUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/portfolio/1/demo/?theme=terminal",
+      "filesUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/portfolio/1/files.json"
+    },
+    {
+      "id": "bento",
+      "category": "dev-portfolio",
+      "name": "Bento",
+      "description": "Bold, rounded card grid.",
+      "kind": "react",
+      "version": 1,
+      "tags": [
+        "bento",
+        "grid",
+        "modern"
+      ],
+      "theme": "bento",
+      "contentPath": "src/content/portfolio.ts",
+      "thumbnailUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/portfolio/1/thumb-bento.webp",
+      "demoUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/portfolio/1/demo/?theme=bento",
+      "filesUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/portfolio/1/files.json"
+    },
+    {
+      "id": "editorial",
+      "category": "dev-portfolio",
+      "name": "Editorial",
+      "description": "Magazine-style serif headings.",
+      "kind": "react",
+      "version": 1,
+      "tags": [
+        "editorial",
+        "serif",
+        "typography"
+      ],
+      "theme": "editorial",
+      "contentPath": "src/content/portfolio.ts",
+      "thumbnailUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/portfolio/1/thumb-editorial.webp",
+      "demoUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/portfolio/1/demo/?theme=editorial",
+      "filesUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/portfolio/1/files.json"
+    }
+  ]
+}

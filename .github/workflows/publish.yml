@@ -1,0 +1,73 @@
+name: Publish Templates
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      all:
+        description: 'Rebuild all templates'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Cache Playwright Chromium
+        uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('package.json') }}
+
+      - name: Install Playwright Chromium
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: bunx playwright install chromium --with-deps
+
+      - name: Checkout gh-pages branch into out/
+        run: |
+          git fetch origin gh-pages:gh-pages 2>/dev/null || true
+          if git rev-parse --verify gh-pages >/dev/null 2>&1; then
+            git worktree add out gh-pages
+          else
+            mkdir -p out
+          fi
+
+      - name: Build and validate templates
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.all }}" = "true" ]; then
+            bun --bun scripts/build.ts --all
+          elif git rev-parse --verify HEAD~1 >/dev/null 2>&1; then
+            bun --bun scripts/build.ts --changed HEAD~1
+          else
+            bun --bun scripts/build.ts --all
+          fi
+
+      - name: Deploy to gh-pages branch
+        run: |
+          touch out/.nojekyll
+          cd out
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Publish templates: ${{ github.sha }}" || exit 0
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" HEAD:gh-pages

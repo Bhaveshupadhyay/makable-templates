@@ -1,0 +1,10 @@
+{
+  "id": "paper",
+  "category": "dev-portfolio",
+  "name": "Paper",
+  "description": "Plain HTML, CSS and JS. No build step.",
+  "kind": "static",
+  "version": 1,
+  "tags": ["static", "html", "simple"],
+  "contentPath": "content/portfolio.js"
+}

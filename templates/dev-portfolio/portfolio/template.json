@@ -1,0 +1,33 @@
+{
+  "id": "portfolio",
+  "category": "dev-portfolio",
+  "name": "Developer Portfolio",
+  "description": "Clean developer portfolio with customizable themes",
+  "kind": "react",
+  "version": 1,
+  "tags": ["portfolio", "developer"],
+  "contentPath": "src/content/portfolio.ts",
+  "themes": ["minimal", "terminal", "bento", "editorial"],
+  "themeMeta": {
+    "minimal": {
+      "name": "Minimal",
+      "description": "Clean type and lots of whitespace.",
+      "tags": ["minimal", "clean", "light"]
+    },
+    "terminal": {
+      "name": "Terminal",
+      "description": "Monospace, dark, command-line feel.",
+      "tags": ["terminal", "dark", "code"]
+    },
+    "bento": {
+      "name": "Bento",
+      "description": "Bold, rounded card grid.",
+      "tags": ["bento", "grid", "modern"]
+    },
+    "editorial": {
+      "name": "Editorial",
+      "description": "Magazine-style serif headings.",
+      "tags": ["editorial", "serif", "typography"]
+    }
+  }
+}

@@ -12,6 +12,8 @@ on:
         description: 'Template ID to remove (e.g. clean-dev)'
         required: true
         type: string
+  repository_dispatch:
+    types: [remove-template]
 
 permissions:
   contents: write
@@ -20,6 +22,18 @@ jobs:
   remove-and-publish:
     runs-on: ubuntu-latest
     steps:
+      - name: Resolve parameters
+        id: params
+        run: |
+          CATEGORY="${{ inputs.category || github.event.client_payload.category }}"
+          ID="${{ inputs.id || github.event.client_payload.id }}"
+          if [ -z "$CATEGORY" ] || [ -z "$ID" ]; then
+            echo "Error: Both category and id must be specified."
+            exit 1
+          fi
+          echo "category=$CATEGORY" >> "$GITHUB_OUTPUT"
+          echo "id=$ID" >> "$GITHUB_OUTPUT"
+
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
@@ -43,7 +57,7 @@ jobs:
 
       - name: Remove template and regenerate catalogs
         run: |
-          bun --bun scripts/remove.ts --category "${{ inputs.category }}" --id "${{ inputs.id }}"
+          bun --bun scripts/remove.ts --category "${{ steps.params.outputs.category }}" --id "${{ steps.params.outputs.id }}"
 
       - name: Commit and push changes to main
         run: |
@@ -53,7 +67,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "No template changes on main to commit"
           else
-            git commit -m "chore(templates): remove ${{ inputs.category }}/${{ inputs.id }}"
+            git commit -m "chore(templates): remove ${{ steps.params.outputs.category }}/${{ steps.params.outputs.id }}"
             git push origin main
           fi
 
@@ -71,6 +85,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No gh-pages changes to commit"
           else
-            git commit -m "chore(catalog): remove ${{ inputs.category }}/${{ inputs.id }}"
+            git commit -m "chore(catalog): remove ${{ steps.params.outputs.category }}/${{ steps.params.outputs.id }}"
             git push -u origin gh-pages
           fi

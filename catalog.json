@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-10-12T11:05:44.795Z",
+  "generatedAt": "2026-10-12T11:43:09.483Z",
   "baseUrl": "https://bhaveshupadhyay.github.io/makable-templates",
   "categories": [
     {
       "id": "dev-portfolio",
       "name": "Developer Portfolio",
       "description": "Portfolios for software engineers, developers, and builders",
-      "count": 7
+      "count": 6
     }
   ],
   "templates": [
@@ -116,25 +116,6 @@
       "thumbnailUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/dopefolio/1/thumb.webp",
       "demoUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/dopefolio/1/demo/",
       "filesUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/dopefolio/1/files.json"
-    },
-    {
-      "id": "hublend",
-      "category": "dev-portfolio",
-      "name": "Hublend",
-      "description": "Interactive 3D developer portfolio featuring an animated avatar and Three.js graphics",
-      "kind": "static",
-      "version": 1,
-      "tags": [
-        "3d",
-        "avatar",
-        "interactive",
-        "threejs",
-        "dark"
-      ],
-      "contentPath": "content/portfolio.js",
-      "thumbnailUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/hublend/1/thumb.webp",
-      "demoUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/hublend/1/demo/",
-      "filesUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/hublend/1/files.json"
     }
   ]
 }

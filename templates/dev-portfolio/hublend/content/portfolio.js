@@ -46,5 +46,5 @@ export const portfolio = {
       stars: 0,
     },
   ],
-  template: 'avatar-3d',
+  template: 'hublend',
 }

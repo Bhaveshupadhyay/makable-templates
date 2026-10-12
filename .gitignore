@@ -4,3 +4,5 @@ out
 dist
 *.log
 .playwright-cache
+.agents/skills/ready-template/
+.idea/

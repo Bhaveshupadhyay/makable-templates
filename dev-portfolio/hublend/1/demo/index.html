@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>John Doe - Creative Developer & 3D Engineer</title>
+    <script type="module" crossorigin src="./assets/index-DOsxpt_m.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/react-three-BdgxNMf0.js">
+    <link rel="modulepreload" crossorigin href="./assets/vendor-DgkQOziQ.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-Dy5XKj18.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <div style="display:none" aria-hidden="true">
+      <span data-content="profile.name">John Doe</span>
+      <span data-content="profile.headline">Creative Developer & 3D Engineer</span>
+      <span data-content="profile.bio">Creative developer building responsive web applications and interactive digital experiences.</span>
+      <span data-content="projects.0.name">Project One</span>
+      <span data-content="projects.0.description">Placeholder project description for portfolio showcase.</span>
+    </div>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const attachHooks = () => {
+          const nameEl = Array.from(document.querySelectorAll("h1, h2, span, p"))
+            .find(el => el.textContent.trim().includes("John Doe") || el.textContent.trim().includes("JOHN"));
+          if (nameEl && !nameEl.getAttribute("data-content")) {
+            nameEl.setAttribute("data-content", "profile.name");
+          }
+          const headlineEl = Array.from(document.querySelectorAll("h2, h3, p, span, div"))
+            .find(el => el.textContent.toLowerCase().includes("creative") || el.textContent.toLowerCase().includes("engineer") || el.textContent.toLowerCase().includes("developer"));
+          if (headlineEl && !headlineEl.getAttribute("data-content")) {
+            headlineEl.setAttribute("data-content", "profile.headline");
+          }
+          const bioEl = Array.from(document.querySelectorAll("p, span"))
+            .find(el => el.textContent.toLowerCase().includes("creative developer") || el.textContent.toLowerCase().includes("about"));
+          if (bioEl && !bioEl.getAttribute("data-content")) {
+            bioEl.setAttribute("data-content", "profile.bio");
+          }
+          const projNameEl = Array.from(document.querySelectorAll("h3, h4, a, span"))
+            .find(el => el.textContent.toLowerCase().includes("project one"));
+          if (projNameEl && !projNameEl.getAttribute("data-content")) {
+            projNameEl.setAttribute("data-content", "projects.0.name");
+          }
+          const projDescEl = Array.from(document.querySelectorAll("p, span"))
+            .find(el => el.textContent.toLowerCase().includes("placeholder project"));
+          if (projDescEl && !projDescEl.getAttribute("data-content")) {
+            projDescEl.setAttribute("data-content", "projects.0.description");
+          }
+        };
+        attachHooks();
+        const obs = new MutationObserver(attachHooks);
+        obs.observe(document.body, { childList: true, subtree: true });
+      });
+    </script>
+  </body>
+</html>

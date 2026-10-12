@@ -145,7 +145,7 @@ export async function runPlaywrightContractAndScreenshots(
       }
     }
 
-    // Screenshots
+    // Screenshots: wait 10 seconds for website, animations, and 3D scenes to settle before capturing
     const customThumb = templateDir ? join(templateDir, 'thumb.webp') : null
     if (customThumb && existsSync(customThumb)) {
       const thumbPath = join(outVersionDir, 'thumb.webp')
@@ -154,6 +154,7 @@ export async function runPlaywrightContractAndScreenshots(
       for (const theme of tpl.themes) {
         const themeUrl = `${demoUrl}?theme=${theme}`
         await page.goto(themeUrl, { waitUntil: 'networkidle' })
+        await page.waitForTimeout(10000)
         const thumbPath = join(outVersionDir, `thumb-${theme}.webp`)
         await page.screenshot({ path: thumbPath, type: 'webp', quality: 85 })
       }
@@ -162,6 +163,7 @@ export async function runPlaywrightContractAndScreenshots(
       const defaultThumb = join(outVersionDir, 'thumb.webp')
       await Bun.write(defaultThumb, await Bun.file(firstThemeThumb).arrayBuffer())
     } else {
+      await page.waitForTimeout(10000)
       const thumbPath = join(outVersionDir, 'thumb.webp')
       await page.screenshot({ path: thumbPath, type: 'webp', quality: 85 })
     }

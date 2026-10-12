@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-10-05T10:42:59.973Z",
+  "generatedAt": "2026-10-12T09:58:09.959Z",
   "baseUrl": "https://bhaveshupadhyay.github.io/makable-templates",
   "categories": [
     {
       "id": "dev-portfolio",
       "name": "Developer Portfolio",
       "description": "Portfolios for software engineers, developers, and builders",
-      "count": 6
+      "count": 7
     }
   ],
   "templates": [
@@ -116,6 +116,25 @@
       "thumbnailUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/dopefolio/1/thumb.webp",
       "demoUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/dopefolio/1/demo/",
       "filesUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/dopefolio/1/files.json"
+    },
+    {
+      "id": "avatar-3d",
+      "category": "dev-portfolio",
+      "name": "Avatar 3D",
+      "description": "Interactive 3D developer portfolio featuring an animated avatar and Three.js graphics",
+      "kind": "static",
+      "version": 1,
+      "tags": [
+        "3d",
+        "avatar",
+        "interactive",
+        "threejs",
+        "dark"
+      ],
+      "contentPath": "content/portfolio.js",
+      "thumbnailUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/avatar-3d/1/thumb.webp",
+      "demoUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/avatar-3d/1/demo/",
+      "filesUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/avatar-3d/1/files.json"
     }
   ]
 }

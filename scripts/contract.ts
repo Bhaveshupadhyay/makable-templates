@@ -73,6 +73,7 @@ export async function runPlaywrightContractAndScreenshots(
   demoDir: string,
   outVersionDir: string,
   basePath: string,
+  templateDir?: string,
 ) {
   // Start a local static server for demoDir
   const server = Bun.serve({
@@ -145,7 +146,11 @@ export async function runPlaywrightContractAndScreenshots(
     }
 
     // Screenshots
-    if (tpl.themes && tpl.themes.length > 0) {
+    const customThumb = templateDir ? join(templateDir, 'thumb.webp') : null
+    if (customThumb && existsSync(customThumb)) {
+      const thumbPath = join(outVersionDir, 'thumb.webp')
+      await Bun.write(thumbPath, await Bun.file(customThumb).arrayBuffer())
+    } else if (tpl.themes && tpl.themes.length > 0) {
       for (const theme of tpl.themes) {
         const themeUrl = `${demoUrl}?theme=${theme}`
         await page.goto(themeUrl, { waitUntil: 'networkidle' })

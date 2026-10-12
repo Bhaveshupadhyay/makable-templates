@@ -133,7 +133,7 @@ async function buildTemplate(ref: TemplateRef, screenshots = false) {
         recursive: true,
         filter: (src) => {
           const name = src.split('/').pop() || ''
-          return !['template.json', 'node_modules', '.git', 'bun.lock'].includes(name)
+          return !['template.json', 'node_modules', '.git', 'bun.lock', 'thumb.webp'].includes(name)
         },
       })
     }
@@ -141,7 +141,7 @@ async function buildTemplate(ref: TemplateRef, screenshots = false) {
     // 5. Playwright contract verification and screenshots
     if (screenshots) {
       console.log('  Verifying editable contract and capturing thumbnails with Playwright...')
-      await runPlaywrightContractAndScreenshots(tpl, demoDir, outVersionDir, basePath)
+      await runPlaywrightContractAndScreenshots(tpl, demoDir, outVersionDir, basePath, templateDir)
     } else {
       console.log('  Skipping Playwright screenshots (runs automatically in GitHub Actions CI).')
     }

@@ -9,6 +9,7 @@ const EXCLUDED_FILES = new Set([
   'pnpm-lock.yaml',
   'yarn.lock',
   '.DS_Store',
+  'thumb.webp',
 ])
 
 const BINARY_EXTS = new Set([

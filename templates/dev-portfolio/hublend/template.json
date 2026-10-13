@@ -4,7 +4,7 @@
   "name": "Hublend",
   "description": "Interactive 3D developer portfolio featuring an animated avatar and Three.js graphics",
   "kind": "static",
-  "version": 1,
+  "version": 2,
   "tags": ["3d", "avatar", "interactive", "threejs", "dark"],
   "contentPath": "content/portfolio.js"
 }

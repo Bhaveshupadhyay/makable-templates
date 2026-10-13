@@ -89,15 +89,20 @@ function bind() {
   }
   const initials = (profile.name || '').split(/\s+/).filter(Boolean).map((w) => w[0]).join('').slice(0, 3)
   const logo = document.querySelector('.navbar-title')
-  if (logo && initials && logo.textContent !== initials.toUpperCase()) logo.textContent = initials.toUpperCase()
+  if (logo) {
+    // The logo shows the name's initials: tagged as the name (so asking to change it changes the
+    // name), but not filled with it.
+    logo.setAttribute('data-content', 'profile.name')
+    if (initials && logo.textContent !== initials.toUpperCase()) logo.textContent = initials.toUpperCase()
+  }
 }
 
-// The 3D character's layer covers the landing text. While the builder's editor is on (it sets
-// data-makable-edit on <html>), let clicks through so the text under it can be picked. GSAP sets
-// pointer-events inline on it, hence !important.
+// The 3D character's layer covers the landing text. While the builder's text editor or AI picker
+// is on (data-makable-edit / data-makable-select on <html>), let clicks through so the text under
+// it can be picked. GSAP sets pointer-events inline on it, hence !important.
 const style = document.createElement('style')
 style.textContent = [
-  'html[data-makable-edit] .character-model { pointer-events: none !important; }',
+  'html:is([data-makable-edit], [data-makable-select]) .character-model { pointer-events: none !important; }',
   // The design's name was typed in capitals; keep the look for any name.
   '.landing-intro h1 { text-transform: uppercase; }',
 ].join('\n')

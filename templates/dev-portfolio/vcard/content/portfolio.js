@@ -1,0 +1,50 @@
+export const portfolio = {
+  profile: {
+    name: 'John Doe',
+    headline: 'Creative Developer & UI Engineer',
+    bio: 'Passionate software engineer specializing in modern web applications, clean architecture, and responsive interactive experiences.',
+    location: 'San Francisco, CA',
+    avatarUrl: './assets/images/my-avatar.png',
+  },
+  links: {
+    github: 'https://github.com/',
+    linkedin: 'https://linkedin.com/',
+    x: 'https://x.com/',
+    website: 'https://example.com/',
+    email: 'john.doe@example.com',
+  },
+  skills: [
+    'JavaScript',
+    'HTML',
+    'CSS',
+    'Python',
+    'C',
+  ],
+  projects: [
+    {
+      name: 'Project One',
+      description: 'Interactive web application featuring responsive design and modern graphics.',
+      repoUrl: 'https://github.com/',
+      homepageUrl: 'https://example.com/',
+      language: 'JavaScript',
+      stars: 120,
+    },
+    {
+      name: 'Project Two',
+      description: 'High-performance software utility built for speed, simplicity, and clean system architecture.',
+      repoUrl: 'https://github.com/',
+      homepageUrl: '',
+      language: 'Python',
+      stars: 85,
+    },
+    {
+      name: 'Project Three',
+      description: 'Low-level system application with optimized algorithms and memory efficiency.',
+      repoUrl: 'https://github.com/',
+      homepageUrl: '',
+      language: 'C',
+      stars: 64,
+    },
+  ],
+  template: 'vcard',
+}

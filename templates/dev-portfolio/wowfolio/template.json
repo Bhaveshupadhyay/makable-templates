@@ -1,0 +1,10 @@
+{
+  "id": "wowfolio",
+  "category": "dev-portfolio",
+  "name": "WowFolio",
+  "description": "Minimalist developer portfolio with custom accent color picker and clean project showcases",
+  "kind": "static",
+  "version": 1,
+  "tags": ["clean", "showcase", "responsive", "static", "minimal"],
+  "contentPath": "content/portfolio.js"
+}

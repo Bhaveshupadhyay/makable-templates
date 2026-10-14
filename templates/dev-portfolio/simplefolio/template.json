@@ -1,0 +1,10 @@
+{
+  "id": "simplefolio",
+  "category": "dev-portfolio",
+  "name": "Simplefolio",
+  "description": "Minimal, clean developer portfolio with subtle tilt animations and responsive project showcases",
+  "kind": "static",
+  "version": 1,
+  "tags": ["clean", "showcase", "responsive", "static", "minimal"],
+  "contentPath": "content/portfolio.js"
+}

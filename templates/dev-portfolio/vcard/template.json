@@ -1,0 +1,10 @@
+{
+  "id": "vcard",
+  "category": "dev-portfolio",
+  "name": "vCard Portfolio",
+  "description": "Clean, card-based developer portfolio with interactive sidebar and tabbed sections",
+  "kind": "static",
+  "version": 1,
+  "tags": ["clean", "card", "responsive", "static", "minimal"],
+  "contentPath": "content/portfolio.js"
+}

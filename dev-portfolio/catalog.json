@@ -1,13 +1,32 @@
 {
-  "generatedAt": "2026-10-13T05:32:37.580Z",
+  "generatedAt": "2026-10-14T15:12:31.281Z",
   "baseUrl": "https://bhaveshupadhyay.github.io/makable-templates",
   "category": {
     "id": "dev-portfolio",
     "name": "Developer Portfolio",
     "description": "Portfolios for software engineers, developers, and builders",
-    "count": 7
+    "count": 10
   },
   "templates": [
+    {
+      "id": "wowfolio",
+      "category": "dev-portfolio",
+      "name": "WowFolio",
+      "description": "Minimalist developer portfolio with custom accent color picker and clean project showcases",
+      "kind": "static",
+      "version": 1,
+      "tags": [
+        "clean",
+        "showcase",
+        "responsive",
+        "static",
+        "minimal"
+      ],
+      "contentPath": "content/portfolio.js",
+      "thumbnailUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/wowfolio/1/thumb.webp",
+      "demoUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/wowfolio/1/demo/",
+      "filesUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/wowfolio/1/files.json"
+    },
     {
       "id": "minimal",
       "category": "dev-portfolio",
@@ -116,6 +135,25 @@
       "filesUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/dopefolio/1/files.json"
     },
     {
+      "id": "vcard",
+      "category": "dev-portfolio",
+      "name": "vCard Portfolio",
+      "description": "Clean, card-based developer portfolio with interactive sidebar and tabbed sections",
+      "kind": "static",
+      "version": 1,
+      "tags": [
+        "clean",
+        "card",
+        "responsive",
+        "static",
+        "minimal"
+      ],
+      "contentPath": "content/portfolio.js",
+      "thumbnailUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/vcard/1/thumb.webp",
+      "demoUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/vcard/1/demo/",
+      "filesUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/vcard/1/files.json"
+    },
+    {
       "id": "hublend",
       "category": "dev-portfolio",
       "name": "Hublend",
@@ -133,6 +171,25 @@
       "thumbnailUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/hublend/2/thumb.webp",
       "demoUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/hublend/2/demo/",
       "filesUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/hublend/2/files.json"
+    },
+    {
+      "id": "simplefolio",
+      "category": "dev-portfolio",
+      "name": "Simplefolio",
+      "description": "Minimal, clean developer portfolio with subtle tilt animations and responsive project showcases",
+      "kind": "static",
+      "version": 1,
+      "tags": [
+        "clean",
+        "showcase",
+        "responsive",
+        "static",
+        "minimal"
+      ],
+      "contentPath": "content/portfolio.js",
+      "thumbnailUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/simplefolio/1/thumb.webp",
+      "demoUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/simplefolio/1/demo/",
+      "filesUrl": "https://bhaveshupadhyay.github.io/makable-templates/dev-portfolio/simplefolio/1/files.json"
     }
   ]
 }
